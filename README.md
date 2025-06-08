@@ -74,7 +74,7 @@ Matplotlib / Seaborn / Pandas
 
 HOW TO RUN
 1. clone this repository:
-   git clone https://github.com/yourusername/excel-chatbot-gemini.git
+   git clone https://github.com/Rahul5101/Excel-Chatbot-Streamlit.git
    cd excel-chatbot-gemini
 
 2. install dependicies:

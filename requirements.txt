@@ -1,0 +1,7 @@
+streamlit
+pandas
+openpyxl
+matplotlib
+seaborn
+google-generativeai
+python-dotenv

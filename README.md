@@ -60,6 +60,7 @@ Execution and Output
 🧠 Understands column names, types, and data distribution.
 
 
+
 🛠️ Tech Stack
 Python
 
@@ -72,17 +73,17 @@ LangChain
 Matplotlib / Seaborn / Pandas
 
 HOW TO RUN
-1. clone this repository
+1. clone this repository:
    git clone https://github.com/yourusername/excel-chatbot-gemini.git
    cd excel-chatbot-gemini
 
-2. install dependicies
+2. install dependicies:
    pip install -r requirements.txt
 
-3. create a .env file and add api key
+3. create a .env file and add api key:
    GEMINI_API_KEY=your_api_key_here
 
-4. start the streamlit app
+4. start the streamlit app:
    streamlit run app.py
 
 

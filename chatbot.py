@@ -1,35 +1,35 @@
 import streamlit as st
 import pandas as pd
-from utils.parser import clean_column_names
+from utils.parser import clean_column
 from utils.charts import plot_chart
 from llm.query_handler import Extract_dataset
 
 st.set_page_config(page_title="Excel Chat Assistant", layout="wide")
-st.title("📊 Excel-Based Chat Assistant")
+st.title("📊 Excel Chat Assistant")
 
-uploaded_file = st.file_uploader("Upload your Excel file", type=["xlsx"])
+excel_file = st.file_uploader("Please Upload your Excel file for further questioning", type=["xlsx"])
 
-if uploaded_file:
-    df = pd.read_excel(uploaded_file)
-    df.columns = clean_column_names(df.columns)
-    st.subheader("Data Preview")
-    st.dataframe(df.head(10))
+if excel_file:
+    data = pd.read_excel(excel_file)
+    data.columns = clean_column(data.columns)
+    st.subheader("Data Trailer")
+    st.dataframe(data.head(10))
 
-    user_question = st.text_input("Ask a question about the data")
+    user_ques = st.text_input("Ask a question about the data")
 
-    if user_question:
+    if user_ques:
         with st.spinner("Thinking..."):
-            result = Extract_dataset(user_question, df)
+            outcome = Extract_dataset(user_ques, data)
 
-        if result["type"] == "text":
-            st.markdown(f"**Answer:** {result['content']}")
+        if outcome["type"] == "text":
+            st.markdown(f"**Answer:** {outcome['content']}")
 
-        elif result["type"] == "table":
-            st.dataframe(result["content"])
+        elif outcome["type"] == "table":
+            st.dataframe(outcome["content"])
 
-        elif result["type"] == "chart":
-            fig = plot_chart(df, result)
+        elif outcome["type"] == "chart":
+            fig = plot_chart(data, outcome)
             st.pyplot(fig)
 
         else:
-            st.error("Sorry, I didn't understand the query.")
+            st.error("Sorry, I didn't have the knowledge about the query.")

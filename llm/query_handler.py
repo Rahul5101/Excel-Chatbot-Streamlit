@@ -21,19 +21,16 @@ def Extract_dataset(ques, data: pd.DataFrame):
             normalize_col.append(col.strip().lower().replace(" ","_"))
         data.columns=normalize_col
     
-        small_data = data.to_markdown(index=False)
+        small_data = data.head(501).to_markdown(index=False)
 
         prompt = f"""
 You are a great data Scientist. You are going to help me in analyzing the dataset that I provided to you in the tabular format.If the question 
 implies a trend, comparison, or distribuƟon, generate appropriate charts (e.g. bar chart, histograms, line chart). Ensure the charts are readable 
 and labelled clearly.
-The assistant should support natural language queries like:
-1 Statistically summaries (e.g. What is the average income?)
-2 Filtered queries (e.g. How many customers are under 30?)
-3 Comparisons or groupings (e.g. Compare loan defaults by gender)
-4 Visual insights (e.g. Show a bar chart of transacƟon count by job)
-If someone ask any question then write the answer only, don't write the code until you have been explictly asked and also draw the plots,chart and 
-table if you have been asked.
+
+If someone ask any question then analyze the code and you have the code execution capability and then write the answer, and don't write the code until you have been explictly asked and also draw the plots,chart and 
+table if you have been asked.you have access to code execution capabilities and you can perform any operation on the dataset to answer the question.
+
 the dataset is provided in the markdown format below.
 {small_data}
 
@@ -55,8 +52,8 @@ A:"""
             "content": finalAnswer
         }
 
-    except Exception as e:
+    except Exception as error:
         return {
             "type": "text",
-            "content": f"Failed to process Gemini response. {str(e)}"
+            "content": f"Failed to process the response. {str(error)}"
         }

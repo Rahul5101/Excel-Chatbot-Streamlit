@@ -1,4 +1,13 @@
 import re
 
-def clean_column_names(columns):
-    return [re.sub(r'\W+', '_', col.strip().lower()) for col in columns]
+def clean_column(columns):
+    cleaned=[]
+    for column in columns:
+        column = column.strip().lower()
+        column = ''.join(col if col.isalnum() else ' ' for col in column)
+        cleaned.append(column)
+    return cleaned
+
+
+
+

@@ -43,11 +43,11 @@ Execution and Output
 
 
  Features
-✅ Upload and parse Excel (.xlsx) datasets
+ Upload and parse Excel (.xlsx) datasets
 
-💬 Chatbot interface powered by Gemini Pro (via LangChain)
+ Chatbot interface powered by Gemini Pro (via LangChain)
 
-📈 Auto-generates:
+ Auto-generates:
 
     Textual insights
 
@@ -55,13 +55,13 @@ Execution and Output
 
     Bar charts, pie charts, and more (via Matplotlib)
 
-🔄 Dynamic prompt handling with PromptTemplate and LLMChain
+ Dynamic prompt handling with PromptTemplate and LLMChain
 
-🧠 Understands column names, types, and data distribution.
+ Understands column names, types, and data distribution.
 
 
 
-🛠️ Tech Stack
+ Tech Stack
 Python
 
 Streamlit
@@ -84,6 +84,6 @@ HOW TO RUN
    GEMINI_API_KEY=your_api_key_here
 
 4. start the streamlit app:
-   streamlit run app.py
+   streamlit run chatbot.py
 
 
